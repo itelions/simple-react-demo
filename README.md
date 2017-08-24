@@ -1,4 +1,3 @@
-##react单页面应用整合包
+## react单页面应用知识点整合
 >由create-react-app创建  
-整合react-router-dom,react-redux,antd  
-用于快速构建react单页面应用的demo
+整合react-router-dom,react-redux,antd 
