@@ -14,26 +14,29 @@ import RouterWatcher from './components/router-watcher';
 import { connect } from 'react-redux';
 import { Route, Link ,Switch ,Redirect } from 'react-router-dom'
 
+import $script from 'scriptjs'
+
 const Step=Steps.Step
 class App extends Component {
 	constructor(props){
 		super(props);
 		this.state={
 			aNumber:123,
-			bNumber:789
+			bNumber:789,
+			step:parseInt(Math.random()*3,10)
 		}
 	}
 	componentDidMount(){
-		console.log('componentDidMount')
-		setTimeout(_=>{
-			this.setState({'aNumber':456})
-		},1000)
+		// setInterval(_=>{
+		// 	this.setState({step:parseInt(Math.random()*3,10)})
+		// },2000)
+
+		$script('http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js',_=>{
+			console.log(window.$)
+		})
 	}
-	componentWillMount(){
-		console.log('componentWillMount')
-	}
+	// componentWillMount(){}
 	render() {
-		var randomStep=parseInt(Math.random()*3)+1;
 		return (
 			<div className="App">
 				<div className="App-header">
@@ -41,13 +44,13 @@ class App extends Component {
 					<h2>Welcome to React</h2>
 				</div>
 				<p className="App-intro">To get started, edit <code>src/App.js</code> and save to reload.</p>
-				<Steps current={randomStep}>
+				<Steps current={this.state.step}>
 					<Step title="Finished" description="This is a description." />
 					<Step title="In Progress" description="This is a description." />
 					<Step title="Waiting" description="This is a description." />
 				</Steps>
-				<p className="showState">Redux state.text={this.props.appendText}</p>
-				<Test tester={this.state.aNumber} />
+				<p className="showState">Redux state.setter.text={this.props.appendText}</p>
+				<Test tester={this.state.aNumber}/>
 				<RouterWatcher/>
 				<ul>{this.navList()}</ul>
 				
@@ -84,7 +87,13 @@ class App extends Component {
 			{link:'/detail',name:'detail'}
 		]
 		return navList.map((item,idx)=>{
-			return <li key={idx}><Link to={item.link}><Button>{item.name}</Button></Link></li>
+			return (
+				<li key={idx} style={{
+					display:'inline'
+				}}>
+					<Link to={item.link}><Button>{item.name}</Button></Link>
+				</li>
+			)
 		})	
 	}
 }

@@ -5,12 +5,14 @@
   "dependencies": {
     "antd": "^2.11.2",
     "babel-plugin-import": "^1.4.0",
+    "draft-js": "^0.10.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
-    "redux": "^3.7.1"
+    "redux": "^3.7.1",
+    "scriptjs": "^2.5.8"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

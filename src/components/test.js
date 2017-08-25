@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'antd';
-import { Icon } from 'antd';
+import { Button,Icon,Input } from 'antd';
 class Test extends Component {
 
 	constructor(props) {
     	super(props);
     	this.state={
-    		borderStyle:'1px solid #aaa'
+    		borderStyle:'1px solid #aaa',
+    		inputValue:'defaultValue'
     	}
 	}
 
-	componentWillUpdate(nextProps,nextState){
-		console.log(nextProps)
-	}
+	// componentWillUpdate({tester},nextState){
+	// 	this.setState({'inputValue':tester});
+	// }
 
 	render() {
 		return (
 			<div>
-				<input type='text' id="addtext" style={{
+				<Input type='text' id="addtext" style={{
 					marginRight:'10px',
 					height:'28px',
 					borderRadius:'4px',
-					border:this.state.borderStyle
+					width:'150px',
+					// border:this.state.borderStyle
 				}}/>
 				<Button type="primary" onClick={e => this.handleClick(e)}>
 					StateChange
@@ -40,7 +41,6 @@ class Test extends Component {
 }
 
 function mapStateToProps(state){
-	console.log(state)
 	return {
 		text:state.setter.text
 	}

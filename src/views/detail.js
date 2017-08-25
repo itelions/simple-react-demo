@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 class Detail extends Component {
 	render() {
 		return (
-			<div className="Detail">Detail</div>
+			<div className="Detail">
+				<span>Detail</span>
+			</div>
 		);
 	}
 }

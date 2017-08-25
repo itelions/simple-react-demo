@@ -6,13 +6,13 @@ class RouterWatcher extends Component {
 	render() {
 		return (
 			<div  className="routerInfo">
-				<p>当前路径:&lt;{this.watchRouter()}&gt;</p>
+				<p>当前路径: &lt; {this.watchRouter()} &gt;</p>
 			</div>
 		);
 	}
     watchRouter(){
 		if(this.props.RouterChange)this.props.RouterChange(this.props.location.pathname);
-		
+		document.title=this.props.location.pathname.split('/')[1]
         return this.props.location.pathname;
     }
 }

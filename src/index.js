@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { setter } from './reducers/setter.js';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'//BrowserRouter
 
 const reducers=combineReducers({setter})
 let store = createStore(reducers);
