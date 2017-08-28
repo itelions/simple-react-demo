@@ -14,7 +14,7 @@ import RouterWatcher from './components/router-watcher';
 import { connect } from 'react-redux';
 import { Route, Link ,Switch ,Redirect } from 'react-router-dom'
 
-import $script from 'scriptjs'
+// import $script from 'scriptjs'
 
 const Step=Steps.Step
 class App extends Component {
@@ -31,9 +31,10 @@ class App extends Component {
 		// 	this.setState({step:parseInt(Math.random()*3,10)})
 		// },2000)
 
-		$script('http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js',_=>{
-			console.log(window.$)
-		})
+		// 使用scriptjs引入远程js文件 同样可以作为jsonp请求工具
+		// $script('http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js',_=>{
+		// 	console.log(window.$)
+		// })
 	}
 	// componentWillMount(){}
 	render() {
