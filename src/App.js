@@ -51,7 +51,10 @@ class App extends Component {
 					<Step title="Waiting" description="This is a description." />
 				</Steps>
 				<p className="showState">Redux state.setter.text={this.props.appendText}</p>
-				<Test tester={this.state.aNumber}/>
+				<Test tester={this.state.aNumber}>
+					<div>组件嵌套测试节点1</div>
+					<div>组件嵌套测试节点2</div>
+				</Test>
 				<RouterWatcher/>
 				<ul>{this.navList()}</ul>
 				

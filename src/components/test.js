@@ -10,7 +10,6 @@ class Test extends Component {
     		inputValue:'defaultValue'
     	}
 	}
-
 	// componentWillUpdate({tester},nextState){
 	// 	this.setState({'inputValue':tester});
 	// }
@@ -29,6 +28,7 @@ class Test extends Component {
 					StateChange
 					<Icon type="edit" />
        			</Button>
+       			{this.props.children}
 			</div>
 		)
 	}
