@@ -174,6 +174,8 @@ class Index extends Component {
 									style={{background:item}}>
 								</span>
 							)
+						}else{
+							return ''
 						}
 					})}
 				</div>

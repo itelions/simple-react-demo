@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 
-import Error from './views/404';
-import Index from './views/index';
-import List from './views/list';
-import Detail from './views/detail';
-
 import './App.css';
 import { Button,Steps } from 'antd';
 
 import Test from './components/test';
 import RouterWatcher from './components/router-watcher';
 import { connect } from 'react-redux';
-import { Route, Link ,Switch ,Redirect } from 'react-router-dom'
-
-// import $script from 'scriptjs'
+import { Link ,Switch ,Redirect } from 'react-router-dom'
+import LazyRoute from './components/LazyRoute'
 
 const Step=Steps.Step
 class App extends Component {
@@ -66,20 +60,15 @@ class App extends Component {
 		);
 	}
 	routeView(){
-		const RouterList=[
-			{path:"/index",component:Index},
-			{path:"/index/:user_id",component:Index},
-			{path:"/list",component:List},
-			{path:"/detail",component:Detail},
-			{path:"/404",component:Error},
-		];
 		const redirect='/404';
 
 		return (
 			<Switch>
-				{RouterList.map(({path,component},idx)=>{
-					return <Route key={idx} path={path} component={component}/>
-				})}
+				<LazyRoute path='/index' component={()=>import('./views/index')}/>
+				<LazyRoute path='/index/:user_id' component={()=>import('./views/index')}/>
+				<LazyRoute path='/list' component={()=>import('./views/list')}/>
+				<LazyRoute path='/detail' component={()=>import('./views/detail')}/>
+				<LazyRoute path='/404' component={()=>import('./views/error')}/>
 				<Redirect to={redirect}/>
 			</Switch>
 		)
